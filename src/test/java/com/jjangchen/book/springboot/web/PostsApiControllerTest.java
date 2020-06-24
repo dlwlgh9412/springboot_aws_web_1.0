@@ -39,7 +39,7 @@ public class PostsApiControllerTest {
     public void tearDown() throws Exception {
         postsRepository.deleteAll();
     }
-
+/*
     @Test
     public void Posts_등록된다() throws Exception {
         String title = "title";
@@ -61,13 +61,17 @@ public class PostsApiControllerTest {
         assertThat(all.get(0).getContent()).isEqualTo(content);
     }
 
+ */
+
     @Test
-    public void Posts_수정된다() throws  Exception {
+    public void Posts_수정된다() throws Exception {
         Posts savedPosts = postsRepository.save(Posts.builder()
         .content("content")
         .title("title")
         .author("author")
         .build());
+
+        System.out.println("wowowwowow" + postsRepository);
 
         Long updateId = savedPosts.getId();
         String expectedTitle = "title2";
@@ -91,4 +95,6 @@ public class PostsApiControllerTest {
         assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
     }
+
+
 }
